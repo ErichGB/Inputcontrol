@@ -1,0 +1,100 @@
+@import "../../../../../../styles/variables";
+
+.Select {
+    color: $gray !important;
+    
+    :global{
+        .ant-select-selection {
+            border: 0;
+            //background: transparent !important;
+    
+            &:active{
+                box-shadow: none;
+            }
+        }
+        
+        .ant-select-selection__clear {
+            font-size: 1.5rem;
+            top: 12px !important;
+            opacity: .5;
+            color: $dark;
+    
+            display: inline-block !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+    }
+    
+    &.in{
+        :global{
+            .ant-select-selection__choice{
+                color: $green !important;
+                border-color: $green !important;
+                background-color: rgba($green, .1) !important;
+                height: 30px;
+                line-height: 28px;
+            }
+            
+            .ant-select-selection-selected-value{
+                color: $green !important;
+            }
+        }
+    }
+    
+    &.ex{
+        :global{
+            .ant-select-selection__choice{
+                color: $red !important;
+                border-color: $red !important;
+                background-color: rgba($red, .1) !important;
+                height: 30px;
+                line-height: 28px;
+            }
+            .ant-select-selection-selected-value{
+                color: $red !important;
+            }
+        }
+    }
+}
+
+:global(.has-warning){
+    .Rule{
+        border-color: rgba($orange, .3);
+        
+        :global {
+            .ant-card-head{
+                background-color: rgba($orange, .15);
+            }
+        }
+    }
+}
+
+:global(.has-error){
+    .Rule{
+        border-color: rgba($red, .3);
+    
+        :global {
+            .ant-card-head{
+                background-color: rgba($red, .15);
+            }
+        }
+    }
+}
+
+.RuleSkeleton{
+    :global{
+        .ant-card-head{
+            .ant-skeleton-paragraph{
+                padding: 0;
+                margin: 0;
+            }
+        }
+    
+        .ant-card-body{
+            .ant-skeleton-paragraph{
+                padding: 0 1rem;
+                margin: .65rem 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,122 @@
+// variables
+@import "../../../../../../styles/variables";
+
+.card {
+    border-radius: .5rem !important;
+    border-width: 2px !important;
+    text-align: center !important;
+    
+    :global{
+        .ant-card-body{
+            //padding: 0 2rem 2rem !important;
+            //.ant-card-meta{
+            //    text-align: center;
+            //}
+            .ant-card-meta-title{
+                font-size: 1.5rem;
+                white-space: normal;
+            }
+        }
+    }
+    
+    .check{
+        position: absolute;
+        font-size: 2.5rem;
+        top: 0;
+        right: 0;
+        left: auto;
+        width: calc(2.5rem + 6px);
+        height: calc(2.5rem + 6px);
+        transform: translate3d(50%, -50%, 0);
+        background-color: $white;
+        border: 3px solid $white;
+        line-height: 0;
+        border-radius: 50%;
+    }
+    
+    &.disabled{
+        filter: grayscale(75%);
+        cursor: not-allowed;
+        user-select: none;
+        
+        &:before {
+            background-color: rgba($default, .5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 9;
+            pointer-events: auto;
+        }
+        &:after {
+            display: none;
+        }
+    
+        .check{
+            z-index: 9;
+            background-color: $default;
+        }
+    }
+    
+    &.selected{
+        border-color: $primary !important;
+        color: $primary !important;
+        transition: border-color 0.5s ease-out 0.5s;
+        
+        :global{
+            .ant-card-meta-title{
+                color: $primary !important;
+            }
+        }
+    
+        &:before,
+        &:after {
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+        }
+    
+        &:before {
+            border-top-color: $primary;
+            border-right-color: $primary;
+            transition:
+                width 0.15s ease-out,
+                height 0.15s ease-out 0.15s;
+        }
+    
+        &:after {
+            border-bottom-color: $primary;
+            border-left-color: $primary;
+            transition:
+                border-color 0s ease-out 0.3s,
+                width 0.15s ease-out 0.3s,
+                height 0.15s ease-out 0.45s;
+        }
+    }
+    
+    // effect
+    &:before,
+    &:after {
+        box-sizing: inherit;
+        content: '';
+        position: absolute;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+    }
+
+    &:before {
+        top: -2px;
+        left: -2px;
+    }
+
+    &:after {
+        bottom: -2px;
+        right: -2px;
+    }
+}

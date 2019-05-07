@@ -1,0 +1,63 @@
+@import "../../../../../../styles/variables";
+
+.InputControlDevice{
+    :global {
+        .ant-upload-list{
+            height: auto;
+            max-height: 155px;
+            overflow-y: auto;
+            background-color: rgba($mainContent-base-color, .5);
+            
+            &:not(:empty){
+                margin-top: 1rem;
+            }
+        }
+    }
+    
+    .BtnClear{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.table {
+    :global {
+        .ant-table-title {
+            top: -1px;
+            padding: 1rem 2rem !important;
+            border-radius: 0;
+            background-color: rgba($primary, .25);
+        }
+        
+        .ant-table-body{
+            overflow-y: auto !important;
+            max-height: calc(100vh - 300px) !important;
+        }
+    }
+}
+
+
+:global(.has-warning){
+    .InputControlDevice{
+        border-color: rgba($orange, .3);
+
+        :global {
+            .ant-card-head{
+                background-color: rgba($mainContent-base-color, .9);
+            }
+        }
+    }
+}
+
+:global(.has-error){
+    .InputControlDevice {
+        border-color: rgba($red, .3);
+    
+        :global {
+            .ant-card-head{
+                background-color: rgba($red, .15);
+            }
+        }
+    }
+}
